@@ -8,33 +8,36 @@
 </head>
 <body class="p-4">
 <h1>Ajouter Des Produits</h1>
-<form class="p-4">
+<form class="p-4" action="insert" method="post">
     <div class="form-group">
         <label for="nome">Nom du produit</label>
-        <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" placeholder="Enter Nom du produit">
+        <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" name="name" placeholder="Enter Nom du produit" >
     </div>
     <div class="form-group">
         <label for="desc">Description</label>
-        <input type="text" class="form-control" id="desc" placeholder="Description">
+        <input type="text" class="form-control" name="description" id="desc" placeholder="Description" >
     </div>
 
 
-    <div class="form-group">
-        <label for="stock">Quantité en stock</label>
-        <input type="number" class="form-control" id="stock" placeholder="Quantité en stock">
-    </div>
+   <div class="form-group">
+    <label for="stock">Quantité en stock</label>
+    <input type="number" class="form-control" id="stock" name="quantity" placeholder="Quantité en stock"
+           required>
+</div>
 
-    <div class="form-group">
-        <label for="prix">Prix unitaire</label>
-        <input type="number" class="form-control" id="prix" placeholder="Prix unitaire">
-    </div>
+<div class="form-group">
+    <label for="prix">Prix unitaire</label>
+    <input type="number" class="form-control" id="prix" name="price" placeholder="Prix unitaire"
+           required>
+</div>
+
 
     <div class="form-group col-md-4">
         <label for="inputCat">Catégorie du produit</label>
-        <select id="inputCat" class="form-control">
+        <select id="inputCat" name="category" class="form-control" >
             <option selected disabled>Choose...</option>
-            <option>Électronique</option>
-            <option>Vêtements</option>
+            <option>Electronique</option>
+            <option>Vetements</option>
             <option>Alimentation</option>
 
         </select>
@@ -67,7 +70,6 @@
     </tbody>
 </table>
 
-<a href="hello-servlet">Hello Servlet</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
