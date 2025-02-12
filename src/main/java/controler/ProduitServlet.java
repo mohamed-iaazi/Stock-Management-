@@ -57,15 +57,14 @@ public class ProduitServlet extends HttpServlet {
     private void listProduit(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException, ServletException {
        
-			List < Produit > listProduit = ProduitDao.selectAllProduits();
-        request.setAttribute("listProduit", listProduit);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
+		List < Produit > listProduit = ProduitDao.selectAllProduits();
+        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        request.setAttribute("list", listProduit);
         dispatcher.forward(request, response);
+       
     }
 
-   
-
-
+  
     private void insertProduit(HttpServletRequest request, HttpServletResponse response)
     throws SQLException, IOException {
         String name = request.getParameter("name");
@@ -75,7 +74,7 @@ public class ProduitServlet extends HttpServlet {
         String category = request.getParameter("category");
         Produit produit = new Produit(name, description, quantity,price,category);
         ProduitDao.insertProduit(produit);
-        response.sendRedirect("list");
+        response.sendRedirect("index.jsp");
     }
 
   

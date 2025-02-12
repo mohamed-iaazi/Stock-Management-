@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,19 +57,49 @@
         <th scope="col">Name of the product</th>
         <th scope="col">Quantité</th>
         <th scope="col">Prix</th>
+       
         <th scope="col"></th>
+          <th scope="col"></th>
+        
 
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Frommage</td>
-        <td>12ps</td>
-        <td>140dh</td>
-        <td><button class="btn btn-danger btn-sm">Delete</button>
-            <button class="btn btn-info btn-sm">Update</button></td>
-    </tr>
+    
+      <!--   for (Todo todo: todos) {  -->
+                            <c:forEach var="produit" items="${list}">
+
+                                <tr>
+                                    <td>
+                                        <c:out value="${produit.id}" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${produit.name}" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${produit.description}" />
+                                    </td>
+                                    <td>
+                                        <c:out value="${produit.quantity}" />
+                                    </td>
+                                     <td>
+                                        <c:out value="${produit.price}" />
+                                    </td>
+                                     <td>
+                                        <c:out value="${produit.category}" />
+                                    </td>
+                                            <td><button class="btn btn-danger btn-sm">Delete</button>
+                                           <button class="btn btn-info btn-sm">Update</button>
+                                           </td>
+                                          
+                               
+
+                                </tr>
+                            </c:forEach>
+                            <!-- } -->
+                        </tbody>
+    
+   
     </tbody>
 </table>
 

@@ -28,7 +28,9 @@ public class ProduitDao {
 	    protected static Connection getConnection() throws SQLException {
 	        Connection connection = null;
 	        try {
-	            Class.forName("com.mysql.jdbc.Driver");
+	          //  Class.forName("com.mysql.jdbc.Driver");
+	            Class.forName("com.mysql.cj.jdbc.Driver");
+
 	            try {
 					connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 					
@@ -111,6 +113,7 @@ public class ProduitDao {
 	                int price = rs.getInt("price");
 	                String category = rs.getString("category");
 	                produits.add(new Produit(id, name, description, quantity,price,category));
+	                System.out.print("ffffffffffffffffff"+produits);
 	            }
 	        } catch (SQLException e) {
 	            printSQLException(e);
