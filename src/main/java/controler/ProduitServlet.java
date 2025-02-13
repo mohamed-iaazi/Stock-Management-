@@ -31,12 +31,18 @@ public class ProduitServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         String action = request.getServletPath();
+        System.out.print("act"+action);
+        if (action == null || action.equals("")) {
+            action = "/"; // Ensures the default action is called
+        }
 
         try {
             switch (action) {
              
                 case "/insert":
                     insertProduit(request, response);
+                    listProduit(request, response);
+
                     break;
                 case "/delete":
                     break;
@@ -45,6 +51,9 @@ public class ProduitServlet extends HttpServlet {
                     break;
                 case "/update":
                     break;
+                    
+               
+           
                 default:
                     listProduit(request, response);
                     break;
@@ -61,6 +70,7 @@ public class ProduitServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         request.setAttribute("list", listProduit);
         dispatcher.forward(request, response);
+
        
     }
 
@@ -74,7 +84,6 @@ public class ProduitServlet extends HttpServlet {
         String category = request.getParameter("category");
         Produit produit = new Produit(name, description, quantity,price,category);
         ProduitDao.insertProduit(produit);
-        response.sendRedirect("index.jsp");
     }
 
   

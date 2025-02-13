@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -50,7 +50,7 @@
 
 <h1>List  Des Produits</h1>
 
-<table class=" table">
+<table class=" table"  >
     <thead  class="thead-dark">
     <tr>
         <th scope="col">#</th>
@@ -66,9 +66,7 @@
     </thead>
     <tbody>
     
-      <!--   for (Todo todo: todos) {  -->
                             <c:forEach var="produit" items="${list}">
-
                                 <tr>
                                     <td>
                                         <c:out value="${produit.id}" />
@@ -105,4 +103,5 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>

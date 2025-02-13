@@ -113,11 +113,13 @@ public class ProduitDao {
 	                int price = rs.getInt("price");
 	                String category = rs.getString("category");
 	                produits.add(new Produit(id, name, description, quantity,price,category));
-	                System.out.print("ffffffffffffffffff"+produits);
+
 	            }
 	        } catch (SQLException e) {
 	            printSQLException(e);
 	        }
+	        System.out.print("list of in method ");
+
 	        return produits;
 	    }
 
